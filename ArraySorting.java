@@ -23,8 +23,16 @@ class ArraySorting
 		ret = ret + "]";
 		System.out.println(ret);
 
+}
+		static void swap(int[] arr, int index1, int index2)
+	{
+		int temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2] = temp;
 	}
 
+
+//BubbleSorting
 	static void bubbleSort(int[] arr)
 	{ 
 	for (int times = 1; times <=arr.length -1;times++ )
@@ -38,12 +46,23 @@ class ArraySorting
 		}
 	}	
 	}
-	static void swap(int[] arr, int index1, int index2)
+
+//selectionSorting
+	static void selectionSort(int[] arr)
 	{
-		int temp = arr[index1];
-		arr[index1] = arr[index2];
-		arr[index2] = temp;
+		for (int times = 1;times <=arr.length -1; times++ )
+		{
+			for (int i = times; i<= arr.length -1; i++)
+			{
+				if (arr[times-1] > arr[i])
+				{
+				swap(arr, times-1,i);
+				}
+			}
+		}
+		
 	}
+
 	
 
 
@@ -52,8 +71,13 @@ class ArraySorting
 
 	int[] arr = {2,9,6,7,4,1};
 	printArray(arr);
+	System.out.println("..................");
 	bubbleSort(arr);
 	printArray(arr);
+	System.out.println("..................");
+	selectionSort(arr);
+	printArray(arr);
+
 
 	}
 
